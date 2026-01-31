@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /*
+     ================================
+     LIVE MARKET PRICES (READ ONLY)
+     ================================
+    */
+    match /live_prices/{assetId} {
+      // Anyone can read delayed prices
+      allow read: if true;
+
+      // No client can write
+      allow write: if false;
+    }
+
+    /*
+     ================================
+     ASSET NEWS (READ ONLY)
+     ================================
+    */
+    match /asset_news/{assetId} {
+      // Anyone can read news
+      allow read: if true;
+
+      // No client can write
+      allow write: if false;
+    }
+
+    /*
+     ================================
+     BLOCK EVERYTHING ELSE
+     ================================
+    */
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
