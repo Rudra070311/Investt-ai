@@ -15,7 +15,7 @@ describe("Investt Moderation AI – v1", () => {
 
   it("blocks direct investment advice", async () => {
     const result = await moderateContent({
-      content: "You should buy Tesla stock now for guaranteed profit",
+      content: "buy 'TESLA stock now!'",
       images: [],
     });
 

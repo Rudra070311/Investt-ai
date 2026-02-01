@@ -1,0 +1,13 @@
+{
+  "name": "investt-cron",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/marketSync.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.0.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "node-fetch": "^3.3.2"
+  }
+}
